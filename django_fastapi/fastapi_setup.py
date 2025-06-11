@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from django.conf import settings
 from django_fastapi.utils.lifespan import lifespan
 from django_fastapi.middleware import setup_middleware
-from django_fastapi.utils.healthcheck import root_health_path
 from django_fastapi.utils.schema import BaseValidationResponse
 from django_fastapi.urls import base_router
 
@@ -33,7 +32,6 @@ def get_fastapi_application() -> FastAPI:
     )
 
     setup_middleware(fastapi_app)
-    root_health_path(fastapi_app)
     
     fastapi_app.include_router(base_router, responses={422: {"model": BaseValidationResponse}})
     return fastapi_app

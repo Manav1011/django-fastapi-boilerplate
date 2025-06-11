@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from fastapi import APIRouter
+from .views import root, healthcheck
 
 # django urls
 urlpatterns = [
@@ -24,3 +25,6 @@ urlpatterns = [
 ]
 
 base_router = APIRouter()
+
+base_router.add_api_route("/", root, methods=["GET"], name="root")
+base_router.add_api_route("/healthcheck", healthcheck, methods=["GET"], name="healthcheck")
