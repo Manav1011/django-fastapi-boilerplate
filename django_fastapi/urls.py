@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from fastapi import APIRouter
 
 # django urls
 urlpatterns = [
     path('admin/', admin.site.urls)
 ]
+
+base_router = APIRouter()

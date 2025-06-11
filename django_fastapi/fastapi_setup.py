@@ -4,7 +4,7 @@ from django_fastapi.utils.lifespan import lifespan
 from django_fastapi.middleware import setup_middleware
 from django_fastapi.utils.healthcheck import root_health_path
 from django_fastapi.utils.schema import BaseValidationResponse
-from django_fastapi.fastapi_urls import base_router
+from django_fastapi.urls import base_router
 
 def get_fastapi_application() -> FastAPI:
     """
